@@ -7,9 +7,11 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addTextResponse('Hello world!')
-      client.addTextResponse('I don\'t know much yet, but if you need some pointers on where to get started you should check out the docs – http://docs.init.ai/?key=c0fb-addc-119f')
-      client.addTextResponse('Otherwise, head over to Teach (up at the top) and start teaching me!')
+      client.addResponse('app:response:name:welcome')
+      client.addResponse('app:response:name:provide/documentation', {
+        documentation_link: 'http://docs.init.ai',
+      })
+      client.addResponse('app:response:name:provide/instructions')
       client.updateConversationState({
         helloSent: true
       })
@@ -23,7 +25,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addTextResponse('Apologies, but this app needs to go back to school!')
+      client.addResponse('app:response:name:apology/untrained')
       client.done()
     }
   })
@@ -34,7 +36,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addTextResponse('Hello world, I mean human')
+      client.addResponse('app:response:name:greeting')
       client.done()
     }
   })
@@ -45,7 +47,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addTextResponse('See you later!')
+      client.addResponse('app:response:name:goodbye')
       client.done()
     }
   })
