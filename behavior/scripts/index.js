@@ -7,11 +7,11 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('app:response:name:welcome')
-      client.addResponse('app:response:name:provide/documentation', {
+      client.addResponse('welcome')
+      client.addResponse('provide/documentation', {
         documentation_link: 'http://docs.init.ai',
       })
-      client.addResponse('app:response:name:provide/instructions')
+      client.addResponse('provide/instructions')
       client.updateConversationState({
         helloSent: true
       })
@@ -25,7 +25,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('app:response:name:apology/untrained')
+      client.addResponse('apology/untrained')
       client.done()
     }
   })
@@ -36,7 +36,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('app:response:name:greeting')
+      client.addResponse('greeting')
       client.done()
     }
   })
@@ -47,7 +47,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('app:response:name:goodbye')
+      client.addResponse('goodbye')
       client.done()
     }
   })
